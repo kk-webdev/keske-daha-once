@@ -1,0 +1,664 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Keşke Daha Önce | Aysel</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <main>
+    <!-- Karşılama ekranı -->
+    <section id="welcome" class="screen active">
+
+      <div class="welcome-card">
+
+        <span class="eyebrow">SANA ÖZEL BİR HİKÂYE</span>
+
+        <div class="heart">♡</div>
+
+        <h1>Keşke Daha Önce</h1>
+
+        <h2>Güzelim;</h2>
+
+        <p class="welcome-message">
+          Bazı hikâyeler tanıştığımız gün başlamaz.
+          Bazıları çok daha öncesine uzanır.
+          <br><br>
+          Senin hayatında henüz olmadığım yıllar vardı.
+          Kutlayamadığım doğum günlerin,
+          yanında olamadığım güzel anların...
+          <br><br>
+          Geçmişe dönemem belki.
+          Ama senin için o günlere küçük bir
+          yolculuk hazırladım.
+        </p>
+
+        <p class="subtitle">
+          22 yıl. 23 tane 28 Mayıs.
+          Ve sana geç kalmış bir sürü güzel şey...
+        </p>
+
+        <button id="startBtn" type="button">
+          Geçmişe Yolculuğa Başla
+          <span aria-hidden="true">→</span>
+        </button>
+
+        <p class="footer-note">
+          Bu hikâyenin bütün sayfaları sana ait.
+        </p>
+
+      </div>
+    </section>
+
+<!-- 22 yıllık takvim yolculuğu -->
+<section id="calendar" class="screen" hidden>
+    <div class="left-cards">
+<!-- SOL TARAFTAKİ ÖZEL NOT KARTI -->
+<aside id="loveNoteCard" class="side-love-card">
+    
+
+    <span class="side-love-icon">♡</span>
+
+    <h3>Sana Bi Şey Dicem...</h3>
+
+    <p id="loveNoteText">
+        Buraya bi tıklar mısın örtmenim :)
+    </p>
+
+    <button id="loveNoteNext" type="button">
+        Bi Daha Söyle ♡
+    </button>
+
+    <small>
+        bi daha tıkla, sana daha söyleyeceklerim var ♡
+    </small>
+
+</aside>
+
+<!-- SAĞ TARAFTAKİ GÜNLÜK BURÇ KARTI -->
+<aside id="horoscopeCard" class="side-horoscope-card">
+    <button id="horoscopeClose" class="horoscope-close" type="button" aria-label="Kartı kapat">×</button>
+
+    <span class="horoscope-icon">♊</span>
+
+    <h3>Bugün Yıldızlar Senin İçin Ne Söylüyor?</h3>
+
+    <span class="horoscope-sign">İkizler Burcu</span>
+
+    <p id="horoscopeDate"></p>
+
+    <p id="horoscopeText" aria-live="polite">
+        Bugünün yorumu yükleniyor...
+    </p>
+
+    <a
+        id="horoscopeSource"
+        href="https://sigastra.com"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Kaynak: Sigastra
+    </a>
+
+</aside>
+<!-- 28 MAYIS TARİHÇESİ -->
+<aside id="historyCard" class="history-card">
+
+    <span class="history-icon">✦</span>
+
+    <h3>28 Mayıs Tarihçesi</h3>
+
+    <p class="history-subtitle">
+        Senin doğduğun günde dünyada neler yaşandı?
+    </p>
+
+    <span id="historyYear">2004</span>
+
+    <button
+        id="historyToggle"
+        class="history-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="historyContent"
+    >
+        Tarihçeyi Oku
+    </button>
+
+    <div id="historyContent" class="history-content" hidden>
+
+        <p id="historyText">
+            Bir hikâye seçiliyor...
+        </p>
+
+<div class="history-event-navigation">
+    <button id="historyPrevEvent" type="button">← Önceki</button>
+    <span id="historyEventCounter"></span>
+    <button id="historyNextEvent" type="button">Sonraki →</button>
+</div>
+
+        <a
+            id="historySource"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            hidden
+        >
+            Hikâyenin Kaynağı
+        </a>
+
+    </div>
+
+</aside>
+
+</div> <!-- left-cards kapanışı -->
+
+  <div class="calendar-container">
+
+    <span class="eyebrow">AYSEL'İN HİKÂYESİ</span>
+
+    <h2 class="calendar-heading">
+      Her 28 Mayıs, başka bir hikâye...
+    </h2>
+
+    <p class="calendar-description">
+      Seninle tanışmadan önce geçen yıllara
+      birlikte küçük bir yolculuk yapalım.
+    </p>
+
+    <div class="calendar-paper" id="calendarPaper">
+
+      <div class="calendar-top">
+        <span id="calendarMonth">MAYIS</span>
+        <span id="calendarYear">2004</span>
+      </div>
+
+      <div class="calendar-rings">
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="calendar-body">
+
+        <div class="calendar-day">28</div>
+
+        <div class="calendar-weekday" id="calendarWeekday">
+          CUMA
+        </div>
+
+        <div class="calendar-divider"></div>
+
+      
+<div class="calendar-story" id="calendarStory">
+
+  <p class="calendar-age" id="calendarAge">
+    Dünyaya geldiğin gün
+  </p>
+
+  <h3 class="calendar-story-title" id="calendarStoryTitle">
+    Bir hikâyenin ilk cümlesi
+  </h3>
+
+  <p class="calendar-message" id="calendarMessage">
+    Her şeyin başladığı gün...
+  </p>
+
+</div>
+
+
+      </div>
+
+    </div>
+
+
+<div class="surprise-area">
+
+  <button id="surpriseBtn" class="surprise-btn" type="button">
+    <span class="envelope-icon">✉</span>
+    <span>Bu yıldan sana bir mektup var</span>
+    <small>Açmak için dokun</small>
+  </button>
+
+  <div id="surpriseLetter" class="surprise-letter" hidden>
+    <span class="letter-label">SANA KÜÇÜK BİR NOT</span>
+
+    <h3 id="letterTitle"></h3>
+
+    <p id="letterMessage"></p>
+
+    <span class="letter-signature">
+      Sevgilerimle, Essegin
+    </span>
+    
+<div id="specialGift" class="special-gift" hidden>
+
+  <div class="gift-divider"></div>
+
+  <p class="gift-intro">
+    Bu doğum gününden sana küçük bir hediyem var...
+  </p>
+
+  <div class="flower-container" id="flowerContainer">
+
+    <div class="flower">
+      <div class="petal p1"></div>
+      <div class="petal p2"></div>
+      <div class="petal p3"></div>
+      <div class="petal p4"></div>
+      <div class="petal p5"></div>
+      <div class="flower-center"></div>
+    </div>
+
+    <div class="flower-stem"></div>
+    <div class="flower-leaf"></div>
+
+  </div>
+
+  <button id="openFlowerBtn" type="button">
+    Çiçeğini Aç
+  </button>
+
+  <p id="flowerMessage" hidden>
+    Bu çiçek sana 22 yıl gecikti.
+    Ama bugün geçmişteki bütün güzel günlerine
+    bir çiçek bırakmak istedim.
+    İyi ki doğdun, Balım.
+  </p>
+
+</div>
+
+<div id="heartGift" class="heart-gift" hidden>
+
+  <div class="gift-divider"></div>
+
+  <h3>10 Yaşına, 10 Küçük Kalp</h3>
+
+  <p class="heart-description">
+    2014 yılında yanında değildim.
+    Ama bugün o doğum gününe
+    10 küçük güzel söz bırakıyorum.
+    Kalplere tek tek dokun.
+  </p>
+
+  <div id="heartGrid" class="heart-grid"></div>
+
+  <div id="heartNote" class="heart-note" hidden></div>
+
+  <p id="heartProgress" class="heart-progress">
+    0 / 10 kalp açıldı
+  </p>
+
+  <p id="heartComplete" class="heart-complete" hidden>
+    10 kalbin hepsi açıldı.
+    İyi ki doğdun, Aysel.
+  </p>
+
+</div>
+
+<!-- 2018 YILI DİLEK SÜRPRİZİ -->
+<div id="wishGift" class="wish-gift" hidden>
+
+  <div class="gift-divider"></div>
+
+  <h3>Gökyüzüne Bir Dilek</h3>
+
+  <p class="wish-description">
+    14 yaşındaki Aysel'in o gün ne dilediğini bilmiyorum.
+    Ama bugün ona bir dilek hakkı daha vermek istiyorum.
+  </p>
+
+  <div class="wish-sky" id="wishSky">
+    <div class="wish-star">✦</div>
+    <span class="wish-sky-text">Bir dilek tut...</span>
+  </div>
+
+  <div id="wishForm">
+    <textarea
+      id="wishInput"
+      maxlength="200"
+      placeholder="Kalbinden geçen bir dileği yaz..."
+      aria-label="Dileğin"
+    ></textarea>
+
+    <button id="sendWishBtn" type="button">
+      Dileğimi Yıldızlara Gönder
+    </button>
+    <p class="wish-privacy-note">
+  Yazdığın dilek özel olarak kaydedilecek ve
+  bu sürprizi hazırlayan kişi tarafından okunabilecek.
+</p>
+  </div>
+
+  <div id="wishResult" hidden>
+    <p>
+      Dileğin yıldızlara ulaştı.
+      Umarım kalbinden geçen bütün güzel şeyler
+      bir gün gerçek olur, Aysel.
+    </p>
+
+    <button id="resetWishBtn" type="button">
+      Yeni Bir Dilek Tut
+    </button>
+  </div>
+
+</div>
+
+<!-- 2022 - 18. YAŞ HEDİYESİ -->
+<div id="birthdayGift" class="birthday-gift" hidden>
+
+  <div class="gift-divider"></div>
+
+  <h3>18 Yaşına Gecikmiş Bir Hediye</h3>
+
+  <p class="birthday-gift-description">
+    O gün yanında değildim.
+    Ama 18. yaş gününe küçük bir hediye
+    bırakmadan geçmek istemedim.
+  </p>
+
+  <button id="birthdayGiftBtn"
+          class="birthday-gift-button"
+          type="button"
+          aria-expanded="false">
+    <span class="gift-illustration" aria-hidden="true">
+      <span class="gift-lid"></span>
+      <span class="gift-body"></span>
+      <span class="gift-ribbon"></span>
+    </span>
+    <span id="birthdayGiftBtnText">Hediyeni Aç</span>
+  </button>
+
+  <div id="birthdayGiftLetter"
+       class="birthday-gift-letter"
+       hidden>
+    
+
+  
+<h4>Güzelim;</h4>
+
+<p>
+  Her ne kadar seni tanıdığımda birçok şeyle savaşıyor
+  olsan da ben, senin bütün o zorlukların üstesinden
+  gelebilecek kişi olduğuna hep inandım. Çünkü sana
+  baktığımda biraz da kendimi görüyorum.
+</p>
+
+<p>
+  Sana bazen "Ben olsaydım böyle yapardım." dediğimde,
+  seni değiştirmeye çalışmıyorum. Sadece ne kadar güçlü
+  olduğunu görmeni, kendine benim sana inandığım kadar
+  inanmanı istiyorum.
+</p>
+
+<p>
+  Ama bilmeni istediğim bir şey var: Artık hiçbir şeyle
+  tek başına savaşmak zorunda değilsin. Her zorluğunda,
+  her sıkıntında, kendini çaresiz hissettiğin her anında
+  yanında olacağım.
+</p>
+
+<p>
+  Sana hayran olmamın en büyük sebeplerinden biri de
+  bana bu kadar benziyor olman. Sende kendimden o kadar
+  çok şey görüyorum ki bazen seni anlamak için uzun
+  uzun konuşmamıza bile gerek kalmıyor.
+</p>
+
+<p>
+  Tabii güzelliğinin ve o biraz fazla yüksek libidonun
+  da bunda etkisi yok değil. :)
+</p>
+
+<p>
+  Ama ben sana bunlardan çok daha önce, senin o güzel
+  kalbine, insanlara yaklaşımına, öğretmen ruhuna ve
+  içindeki o tertemiz tarafa hayran oldum.
+</p>
+
+<p>
+  Ben önce bedenine değil, ruhuna âşık oldum.
+  Seni tanıdıkça da bütün o güzel taraflarına
+  her geçen gün biraz daha hayran kaldım.
+</p>
+
+<p>
+  Keşke 18 yaşına girdiğin o gün yanında olabilseydim.
+  Belki yaşadığın bütün zorlukları değiştiremezdim
+  ama en azından elini tutup sana şunu söyleyebilirdim:
+</p>
+
+<p>
+  <strong>
+    Sen sandığından çok daha güçlüsün Aysel.
+    Ve artık ne olursa olsun, yanında seni kendine
+    bile inanamadığın zamanlarda sevecek ve sana
+    inanacak biri var.
+  </strong>
+</p>
+
+  </div>
+
+</div>
+
+<!-- 2026 - FİNAL SÜRPRİZİ -->
+<div id="finalGift" class="final-gift" hidden>
+
+  <div class="gift-divider"></div>
+
+  <h3>Keşke Daha Önce...</h3>
+
+  <p class="final-description">
+    Bütün bu yıllar boyunca yanında olamadım.
+    Ama sana söylemek istediğim son bir şey var.
+  </p>
+
+  <button id="finalGiftBtn" type="button">
+    Geçmişe Dönemem Ama...
+  </button>
+
+  <div id="finalLetter" class="final-letter" hidden>
+    <h4>İyi ki yollarımız kesişmiş.</h4>
+
+    <p>
+      Keşke seni daha önce tanısaydım.
+      Keşke geçmişteki bütün doğum günlerinde
+      yanında olabilseydim.
+    </p>
+
+    <p>
+      Ama ne kadar istesem de geçmişi değiştiremem.
+      Yapabileceğim tek şey, bundan sonra
+      yaşayacağımız güzel anıları çoğaltmak.
+    </p>
+
+    <p>
+      Geçmişindeki bütün doğum günlerini
+      sana geri veremem belki.
+      Ama geleceğindeki doğum günlerinde
+      yanında olmak istiyorum.
+    </p>
+
+    <p class="final-highlight">
+      Keşke daha önce değil...
+      İyi ki şimdi.
+    </p>
+    <div id="finalReveal" class="final-reveal" hidden>
+  <span class="final-reveal-small">
+    Geçmişi değiştiremem.
+  </span>
+
+  <span class="final-reveal-main">
+    İyi ki şimdi.
+  </span>
+
+  <span class="final-reveal-sub">
+    İyi ki sen, Aysel.
+  </span>
+
+<button id="showEndingBtn" type="button">
+  Bir Son Şey Daha...
+</button>
+
+</div>
+  </div>
+<div id="finalReveal" class="final-reveal" hidden>
+  <span class="final-reveal-small">
+    Geçmişi değiştiremem.
+  </span>
+
+  <span class="final-reveal-main">
+    İyi ki şimdi.
+  </span>
+
+  <span class="final-reveal-sub">
+    İyi ki sen, Aysel.
+  </span>
+</div>
+</div>
+
+</div> <!-- surpriseLetter kapanışı -->
+</div> <!-- surprise-area kapanışı -->
+
+
+
+
+
+
+    <div class="calendar-navigation">
+
+      <button id="prevYear" type="button">
+        ← Önceki Yıl
+      </button>
+
+      <span id="calendarCounter">1 / 23</span>
+
+      <button id="nextYear" type="button">
+        Sonraki Yıl →
+      </button>
+
+    </div>
+
+    <button id="backBtn" class="calendar-back" type="button">
+      Ana Sayfaya Dön
+    </button>
+
+  </div>
+
+</section>
+  </main>
+
+<!-- SON SAHNE -->
+<section id="endingScreen" class="screen ending-screen" hidden>
+  <div class="ending-content">
+
+    <span class="ending-small">
+      23 doğum günü, 23 ayrı hatıra...
+    </span>
+
+    <h1>Keşke Daha Önce...</h1>
+
+    <p>
+      2004'ten 2026'ya kadar
+      bütün doğum günlerine küçük birer
+      hatıra bırakmaya çalıştım.
+    </p>
+
+    <p>
+      Geçmişte yanında olamadığım
+      bütün o yıllar için içimde
+      hep aynı cümle var:
+    </p>
+
+    <div class="ending-quote">
+      Keşke seni daha önce tanısaydım.
+    </div>
+
+    <p>
+      Ama sonra düşünüyorum...
+      Belki de önemli olan
+      ne kadar geç karşılaştığımız değil,
+      bundan sonra birlikte
+      neler yaşayacağımız.
+    </p>
+
+    <h2>İyi ki şimdi. İyi ki sen.</h2>
+
+    <span class="ending-signature">
+      Seni seviyorum, Aysel.
+    </span>
+
+    <button id="restartStoryBtn" type="button">
+      Hikâyemizi Yeniden Yaşa
+    </button>
+
+  </div>
+</section>
+
+
+<!-- BİZİM MÜZİK ÇALARIMIZ -->
+<div id="musicPlayer" class="music-closed">
+
+    <button id="musicToggle" type="button" aria-label="Müzik çaları aç">
+        ♫
+    </button>
+
+    <div id="musicPanel">
+
+        <div class="music-header">
+            <span>Bizim Şarkılarımız</span>
+            <button id="musicClose" type="button" aria-label="Müzik çaları kapat">×</button>
+        </div>
+
+        <div class="music-cover">♡</div>
+
+        <div class="music-info">
+            <div id="musicTitle">Bir şarkı seçiliyor...</div>
+            <div id="musicArtist">Aysel'e özel</div>
+        </div>
+
+        <input type="range" id="musicProgress" min="0" max="100" value="0">
+
+        <div class="music-times">
+            <span id="musicCurrentTime">0:00</span>
+            <span id="musicDuration">0:00</span>
+        </div>
+
+        <div class="music-controls">
+            <button id="musicPrev" type="button" aria-label="Önceki şarkı">⏮</button>
+            <button id="musicPlay" type="button" aria-label="Oynat">▶</button>
+            <button id="musicNext" type="button" aria-label="Sonraki şarkı">⏭</button>
+        </div>
+
+        <div class="music-volume">
+            <span>♫</span>
+            <input type="range" id="musicVolume" min="0" max="100" value="50">
+        </div>
+
+        <audio id="backgroundMusic" preload="metadata"></audio>
+
+    </div>
+
+</div>
+
+
+<!-- SAATE GÖRE ROMANTİK BİLDİRİMLER -->
+<div id="timeMessage" class="time-message" role="status" aria-live="polite">
+    <span class="time-message-heart">♡</span>
+
+    <div class="time-message-content">
+        <strong id="timeMessageTitle"></strong>
+        <p id="timeMessageText"></p>
+    </div>
+
+    <button id="timeMessageClose" type="button" aria-label="Bildirimi kapat">×</button>
+</div>
+
+<div id="nightStars" class="night-stars" aria-hidden="true"></div>
+
+</body>
+</html>
