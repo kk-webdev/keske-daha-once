@@ -1487,3 +1487,40 @@ document.addEventListener("DOMContentLoaded", () => {
         nightStars.appendChild(star);
     }
 });
+
+/* AYSEL - ANONİM ZİYARET KAYDI */
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const SUPABASE_URL = "https://sgwapelypjffoszajpta.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_o4wGW-o6U3NwOZP0QCMNuA_xRoWviMd";
+
+    try {
+        let visitorId = localStorage.getItem("aysel_visitor_id");
+
+        if (!visitorId) {
+            visitorId = crypto.randomUUID();
+            localStorage.setItem("aysel_visitor_id", visitorId);
+        }
+
+        const response = await fetch(
+            `${SUPABASE_URL}/rest/v1/site_visits`,
+            {
+                method: "POST",
+                headers: {
+                    "apikey": SUPABASE_KEY,
+                    "Content-Type": "application/json",
+                    "Prefer": "return=minimal"
+                },
+                body: JSON.stringify({
+                    visitor_id: visitorId
+                })
+            }
+        );
+
+        if (!response.ok) {
+            console.error("Ziyaret kaydı başarısız:", response.status);
+        }
+    } catch (error) {
+        console.error("Ziyaret kaydı hatası:", error);
+    }
+});
